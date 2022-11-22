@@ -9,11 +9,13 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class Pantalla extends JFrame {
     
     private Pantalla p;
+    private Bola x;
     private Mesa mesita;
     public Pantalla(){
        super();
        p = this;
        mesita = new Mesa(200,200,600,300);
+       x = new Bola();
        setLayout(null);
        
        this.setSize(1000,800); 
@@ -23,6 +25,9 @@ public class Pantalla extends JFrame {
         
     }
     public void paint(Graphics g){
+        
         mesita.paint(g);
+        x.paint(g);
+        
     }
 }

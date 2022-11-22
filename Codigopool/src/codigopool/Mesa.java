@@ -21,8 +21,11 @@ public class Mesa {
     }
     
     public void paint(Graphics g){
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect((int)X-15, (int)Y-15, (int)width+30, (int)height+30);
         g.setColor(Color.green);
         g.fillRect((int)X, (int)Y, (int)width, (int)height);
+        
     }
     
 }
