@@ -3,17 +3,26 @@ package codigopool;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Bola {
-    private double location;
-    private double radio;
+public abstract class Bola {
+    private double locationX;
+    private double locationY;
+    private final double radio = 50;
     
-    public Bola(){
+    public Bola(double x, double y){
         
+        locationX = x;
+        locationY = y;
     }
     
+    public double getX(){
+        return locationX;
+    }
+    public double getY(){
+        return locationY;
+    }
     public void paint(Graphics g){
         g.setColor(Color.red);
-        g.fillOval(50, 50, 50, 50);
-        //g.drawOval(50, 50, 50, 50);
+        g.fillOval((int)locationX, (int)locationY,50,50);
+        
     }
 }
