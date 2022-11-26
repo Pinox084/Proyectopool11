@@ -12,7 +12,7 @@ public class Pantalla extends JFrame {
     private BolaJugador x;
     private Mesa mesita;
     private Background fondo;
-    //private JPanel atras;
+    
     public Pantalla(){
        super();
        p = this;
@@ -25,12 +25,19 @@ public class Pantalla extends JFrame {
        
        add(fondo);
        x = new BolaJugador(50,50);
+       int t = 0;
+       
        
        
        setLayout(null);       
        setSize(1000,800);        
        setDefaultCloseOperation(EXIT_ON_CLOSE);
        setVisible(true);
+       do{
+           x.move();
+           
+           repaint();
+       }while(t==0);
        
     }
     public void paint(Graphics g){

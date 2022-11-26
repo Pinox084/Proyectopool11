@@ -9,6 +9,7 @@ public class Mesa {
     private double Y;
     private double width;
     private double height;
+    private Colision colisionador;
     
    // private JLabel mesa;
     

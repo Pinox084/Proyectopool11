@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 public class BolaColores extends Bola {
     int tipo;
-    public BolaColores(double x, double y){
+    public BolaColores(float x, float y){
         super(x,y);
         if((getX()+getY())>=100){
             tipo=1;
