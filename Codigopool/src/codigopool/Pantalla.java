@@ -12,6 +12,7 @@ public class Pantalla extends JFrame {
     
     private Mesa mesita;
     private Background fondo;
+    private Botones boton;
     
     public Pantalla(){
        super();
@@ -19,10 +20,10 @@ public class Pantalla extends JFrame {
        mesita = new Mesa(200,200,600,300);
        
        fondo = new Background(1000,600);
-       
+       boton = new Botones();
        fondo.setBounds(0,0,1000,800);
        fondo.setBackground(Color.black);
-       
+       addKeyListener(boton);
        add(fondo);
        
        int t = 0;
