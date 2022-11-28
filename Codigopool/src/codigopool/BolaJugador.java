@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class BolaJugador extends Bola{
     
-    public BolaJugador(float x, float y, int n){
+    public BolaJugador(double x, double y, int n){
         super(x,y,n);
         
     }
