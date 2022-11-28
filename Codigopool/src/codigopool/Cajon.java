@@ -7,15 +7,13 @@ import java.util.ArrayList;
 
 public class Cajon {
     private ArrayList<Bola> cajon;
-    
-    
     public Cajon(){
         cajon = new ArrayList();
         //players = new ArrayList();
     }
     
     public void newBola(Bola nueva){
-        System.out.print(nueva.getNumber());
+        
         cajon.add(nueva);
     }
     
@@ -26,9 +24,7 @@ public class Cajon {
        
         for (int i = 0; i < cajon.size(); i++) {
             cajon.get(i).move();
-            System.out.println("Pelota " + cajon.get(i).getNumber() + ": "+cajon.get(i).getX());
         }
-                
     }
     public void ColisionBorder(float x, float y, float width, float height){
 
@@ -37,20 +33,16 @@ public class Cajon {
             
             if((cajon.get(i).getX() <= x) || (cajon.get(i).getX() >= width+180) ){
                 
-                float aux = cajon.get(i).getMoveX();
+                double aux = cajon.get(i).getMoveX();
                 aux = aux * -1;
                 cajon.get(i).setMoveX(aux);
-            
             }
             if((cajon.get(i).getY() <= y) || (cajon.get(i).getY() >= height+180) ){
-                float aux2 = cajon.get(i).getMoveY();
+                double aux2 = cajon.get(i).getMoveY();
                 aux2 = aux2 * -1;
                 cajon.get(i).setMoveY(aux2);
             }
-            
-            
         }
-        
     }
     
     public void ColisionBall(){
