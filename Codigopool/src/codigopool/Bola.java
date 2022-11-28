@@ -4,19 +4,19 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class Bola {
-    protected float locationX;
-    protected float locationY;
-    protected float moveX;
-    protected float moveY;
+    protected double locationX;
+    protected double locationY;
+    protected double moveX;
+    protected double moveY;
     protected final float radio = 50;
     private int number;
     
-    public Bola(float x, float y, int n){
+    public Bola(double x, double y, int n){
         
         locationX = x;
         locationY = y;
-        moveX = 1f;
-        moveY = 1f;
+        moveX = 0.000001f;
+        moveY = 0.000001f;
         number = n;
     }
     
@@ -28,23 +28,23 @@ public abstract class Bola {
        
               
     }
-    public void setMoveX(float x){
+    public void setMoveX(double x){
         moveX = x;
           
     }
-    public void setMoveY(float y){
+    public void setMoveY(double y){
         moveY = y;
     }
-    public float getX(){
+    public double getX(){
         return locationX;
     }
-    public float getY(){
+    public double getY(){
         return locationY;
     }
-    public float getMoveX(){
+    public double getMoveX(){
         return moveX;
     }
-    public float getMoveY(){
+    public double getMoveY(){
         return moveY;
     }
     public int getNumber(){
