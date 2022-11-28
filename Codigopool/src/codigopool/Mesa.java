@@ -18,6 +18,7 @@ public class Mesa {
         Y = y;
         width = a;
         height = b;
+        
         caja = new Cajon();
         initPosition();
         
@@ -26,15 +27,19 @@ public class Mesa {
     }
     
     public void game(){
+        caja.ColisionBorder(X, Y, width, height);
         caja.mover();
-        caja.ColisionBorder(X, Y, height, width);
+        
     }
     public void initPosition(){
+        caja.newPlayer(new BolaJugador(X +100, Y+20, 0));
         for (int i = 1; i < 10; i++) {
-            float pox = X +(float)i*50;
-            float poy = Y+(float)i*50; 
+            float pox = X+10;
+            float poy = Y+(float)i*20; 
             caja.newBola(new BolaColores(pox,poy,i));
+            
         }
+        
     }
     
     public void paint(Graphics g){

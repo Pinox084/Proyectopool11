@@ -15,24 +15,22 @@ public abstract class Bola {
         
         locationX = x;
         locationY = y;
-        moveX = 0.1f;
-        moveY = 0;
-        n = number;
+        moveX = 1f;
+        moveY = 1f;
+        number = n;
     }
     
     
     
     public void move(){
-        locationX = locationX +moveX;
-        locationY = locationY +moveY;
-        System.out.println("Pelota " + number + ": "+locationX);
-        
-        
+        locationX = locationX + moveX;
+        locationY = locationY + moveY;
+       
+              
     }
-    public void setmoveX(float x){
+    public void setMoveX(float x){
         moveX = x;
-        
-        
+          
     }
     public void setMoveY(float y){
         moveY = y;

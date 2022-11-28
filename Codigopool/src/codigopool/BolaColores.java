@@ -13,6 +13,8 @@ public class BolaColores extends Bola {
             tipo=2;
         }
     }
+    
+    
     @Override
     public void paint(Graphics g){
         switch (tipo){
