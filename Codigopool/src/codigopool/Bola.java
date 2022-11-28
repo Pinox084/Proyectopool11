@@ -8,29 +8,34 @@ public abstract class Bola {
     protected float locationY;
     protected float moveX;
     protected float moveY;
-    protected final double radio = 50;
+    protected final float radio = 50;
+    private int number;
     
-    public Bola(float x, float y){
+    public Bola(float x, float y, int n){
         
         locationX = x;
         locationY = y;
         moveX = 0.1f;
-        moveY = 0.5f;
+        moveY = 0;
+        n = number;
     }
+    
+    
     
     public void move(){
         locationX = locationX +moveX;
         locationY = locationY +moveY;
+        System.out.println("Pelota " + number + ": "+locationX);
         
-        if((locationX <= 0) || (locationX >= 1000) ){
-            moveX = moveX * -1;
-            
-        }
-        if((locationY <= 0) || (locationY >= 1000) ){
-            moveY = moveY * -1;
-        }
-        System.out.println(locationX);
-        System.out.println(locationY);
+        
+    }
+    public void setmoveX(float x){
+        moveX = x;
+        
+        
+    }
+    public void setMoveY(float y){
+        moveY = y;
     }
     public float getX(){
         return locationX;
@@ -38,9 +43,17 @@ public abstract class Bola {
     public float getY(){
         return locationY;
     }
+    public float getMoveX(){
+        return moveX;
+    }
+    public float getMoveY(){
+        return moveY;
+    }
+    public int getNumber(){
+        return number;
+    }
     public void paint(Graphics g){
-        g.setColor(Color.red);
-        g.fillOval(Math.round(locationX), Math.round(locationY),50,50);
+       
         
     }
 }
