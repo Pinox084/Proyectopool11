@@ -4,9 +4,10 @@ package codigopool;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
-public class Botones extends JFrame implements KeyListener{
+public class Botones extends JPanel implements KeyListener{
     public Botones(){
     }
     

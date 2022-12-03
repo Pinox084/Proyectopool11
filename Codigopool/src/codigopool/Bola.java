@@ -15,8 +15,8 @@ public abstract class Bola {
         
         locationX = x;
         locationY = y;
-        moveX = 0.000001f;
-        moveY = 0.000001f;
+        moveX = 0f;
+        moveY = 0f;
         number = n;
     }
     

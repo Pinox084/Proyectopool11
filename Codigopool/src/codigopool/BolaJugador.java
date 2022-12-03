@@ -13,6 +13,6 @@ public class BolaJugador extends Bola{
     
     public void paint(Graphics g){
         g.setColor(Color.white);
-        g.fillOval((int)locationX, (int)locationY,20,20);
+        g.fillOval((int)locationX-10, (int)locationY-10,20,20);
     }
 }

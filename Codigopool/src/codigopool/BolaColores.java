@@ -20,10 +20,10 @@ public class BolaColores extends Bola {
         switch (tipo){
                 case 1:
                     g.setColor(Color.red);
-                    g.fillOval((int)getX(), (int)getY(),20,20);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
                 case 2:
                     g.setColor(Color.blue);
-                    g.fillOval((int)getX(), (int)getY(),20,20);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
         }
     }
             

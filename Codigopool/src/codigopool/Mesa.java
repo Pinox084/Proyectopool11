@@ -26,7 +26,8 @@ public class Mesa {
         
     }
     
-    public void game(){
+    public void game(){        
+        caja.ColisionBall();
         caja.ColisionBorder(X, Y, width, height);
         caja.mover();
         
@@ -34,12 +35,12 @@ public class Mesa {
     public void initPosition(){
         caja.newPlayer(new BolaJugador(X +100, Y+20, 0));
         for (int i = 1; i < 10; i++) {
-            float pox = X+10;
-            float poy = Y+(float)i*20; 
+            float pox = X+50+i*10;
+            float poy = Y+10+(float)i*20; 
             caja.newBola(new BolaColores(pox,poy,i));
             
         }
-        
+        caja.setMove();
     }
     
     public void paint(Graphics g){
