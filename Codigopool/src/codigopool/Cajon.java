@@ -34,21 +34,7 @@ public class Cajon {
         cajon.get(0).setMoveX(1f);
         cajon.get(0).setMoveY(1f);
     }
-    public double checkspeedX(Bola a, Bola b){
-        if(abs(a.getMoveX())>= abs(b.moveX)){
-            return a.getMoveX();
-        }else{
-            return b.getMoveX();
-        }
-        
-    }
-    public double checkspeedY(Bola a, Bola b){
-        if(abs(a.getMoveY())>= abs(b.moveY)){
-            return a.getMoveY();
-        }else{
-            return b.getMoveY();
-        }
-    }
+    
     
     public void ColisionBorder(float x, float y, float width, float height){
 
@@ -73,29 +59,38 @@ public class Cajon {
         for (int i = 0; i < cajon.size(); i++) {
             
             for (int j = 0; j < cajon.size(); j++) {
-                double check;
-                double checkx;
-                double checky;
-                double x =cajon.get(i).getMoveX();
-                double y = cajon.get(i).getMoveY();
-                check = checkdiametro(cajon.get(i), cajon.get(j));
-                checkx = checkspeedX(cajon.get(i), cajon.get(j));
-                checky = checkspeedY(cajon.get(i), cajon.get(j));
-                if(check <= 20){
-                                       
-                    cajon.get(j).setMoveX(checkx);
-                    cajon.get(j).setMoveY(checky);
+                double aux = checkdiametro(cajon.get(i), cajon.get(j));
+                if(  aux <= 10f){
+                    
+                    changerColision(cajon.get(i), cajon.get(j));
+                    
                 }
-                
             }
         }
     }
-    public double checkdiametro(Bola a, Bola b){
-        double result;
+    
+    public void changerColision(Bola a, Bola b){
+        double x = b.getX() -a.getX();
+        double y = b.getY()- a.getY();
+        double tangente = y/x;
+        double angle = Math.atan(tangente);
+        x =a.getMoveX()*Math.cos(angle)+b.getMoveX()*Math.cos(angle);
+        x *= -1;
+        y = a.getMoveY()*Math.sin(angle)+b.getMoveY()*Math.sin(angle);
+        y *= -1;
+        a.setMoveX(x);
+        a.setMoveY(y);
+        x = a.getMoveX()*Math.cos(angle)+b.getMoveX()*Math.cos(angle);
+        y = a.getMoveY()*Math.sin(angle)+b.getMoveY()*Math.sin(angle);
+        b.setMoveX(x);
+        b.setMoveY(y);
         
+        
+    }
+    public double checkdiametro(Bola a, Bola b){
         double x = pow(b.getX() -a.getX(),2);
-        double y = pow(b.getY()-a.getY(),2);
-        result = sqrt(x+y);
+        double y = pow(b.getY() -a.getY(),2);
+        double result = sqrt(x+y);
         return result;
     }
     public void paint(Graphics g){
