@@ -1,6 +1,7 @@
 
 package Controles;
 
+import codigopool.Pantalla;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -27,7 +28,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+        Pantalla.p.mesita.golpear(e.getX(), e.getY());
     }
 
     @Override
@@ -37,7 +38,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        System.out.println(e.getX() + " "+ e.getY());
+        //System.out.println(e.getX() + " "+ e.getY());
     }
 
     @Override
@@ -47,7 +48,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        System.out.println(e.getX() + " "+ e.getY());
+        //System.out.println(e.getX() + " "+ e.getY());
     }
     @Override
     public void mouseMoved(MouseEvent e) {

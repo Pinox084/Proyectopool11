@@ -11,7 +11,7 @@ public class Pantalla extends JFrame {
     
     public static Pantalla p;
     
-    private Mesa mesita;
+    public Mesa mesita;
     private Background fondo;
     private Botones boton;
     private ControlTeclado controld;

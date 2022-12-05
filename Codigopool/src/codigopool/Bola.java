@@ -25,8 +25,32 @@ public abstract class Bola {
     public void move(){
         locationX = locationX + moveX;
         locationY = locationY + moveY;
-       
+        //friction();
               
+    }
+    public void friction(){
+        
+        if(moveX < 0){
+            moveX += 1f;
+        }else{
+            moveX -= 1f;
+        }
+        if(moveY < 0){
+            moveY += 1f;
+        }else{
+            moveY -= 1f;
+        }
+        if((Math.abs(moveX) <= 0.25f)){
+            moveX = 0;
+        }
+        if((Math.abs(moveY) <= 0.25f)){
+            moveY = 0;
+        }
+        
+    }
+    public void setPosition(double x, double y){
+        locationX = x;
+        locationY = y;
     }
     public void setMoveX(double x){
         moveX = x;
