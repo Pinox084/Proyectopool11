@@ -29,8 +29,8 @@ public class Cajon {
         
     }
     public void setMove(double x, double y){
-        cajon.get(0).setMoveX(x*0.005);
-        cajon.get(0).setMoveY(y*0.005);
+        cajon.get(0).setMoveX(x*0.05);
+        cajon.get(0).setMoveY(y*0.05);
     }
     public Bola getBall(){
         return cajon.get(0);
@@ -65,79 +65,63 @@ public class Cajon {
                     continue;
                 }
                 double aux = checkdiametro(cajon.get(i), cajon.get(j));
-                if(  20 >= aux){                   
-                    //changerColision(cajon.get(i), cajon.get(j));   
+                if(  21 >= aux){                   
+                    changerColision(cajon.get(i), cajon.get(j));
+                    //descolision(cajon.get(i), cajon.get(j));
                 }
             }
         }
+        System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
     }
     
     
     public void changerColision(Bola a, Bola b){
         double x = b.getX() - a.getX();
         double y = b.getY() - a.getY();
-        double mag = Math.sqrt(x*x+y*y);
-        //vector unitatio
-        x = x/mag;
-        y = y/mag;
+        double angle = Math.atan2(y,x);
         
-         //vator tangente
-        double ux = -y;
-        double uy = x;
-        //velocidades
         double vx1, vy1;
         double vx2, vy2;
-        //velocidades a y b
         vx1 = a.getMoveX();
         vy1 = a.getMoveY();
         vx2 = b.getMoveX();
         vy2 = b.getMoveY();
         
-        //vector n's
+        double cosx = Math.cos(angle);
+        double siny = Math.sin(angle);
+        double velox1;
+        double veloy1;
+        double velox2;
+        double veloy2;
         
-        double v1n = x*vx1 + y * vy1;
-        double v1t = ux * vx1 +uy *vy2;
-        double v2n = x* vx2 + y *vy2;
-        double v2t = ux *vx2 + uy * vy2;
+        velox1 = cosx * vx1 + siny * vy1;
+        veloy1 = -siny * vx1 + cosx *vy1;
         
-        double v1nx, v1ny;
-        double v1tx, v1ty;
-        double v2nx, v2ny;
-        double v2tx, v2ty;
-         
-        v1n = v1n +2*v2n;
-        v2n = v2n +2*v1n;
+        velox2 = cosx * vx2 + siny * vy2;
+        veloy2 = -siny * vx2 + cosx * vy2;
         
-        v1nx = v1n * x;
-        v1ny = v1n * y;
+        double vfinal;
+        double vfinal2;
         
-        v1tx = v1t * ux;
-        v1ty = v1t * uy;
+        vfinal = 2*velox2;
+        vfinal2 = 2*velox1;
+        velox1 = vfinal;
+        velox2 = vfinal2;
+        a.setPosition(x, y);
+        a.setMoveX(velox1*cosx-veloy1*siny);
+        a.setMoveY(veloy1*cosx+velox1*siny);
+        b.setMoveX(velox2*cosx-veloy2*siny);
+        b.setMoveY(veloy2*cosx+velox2*siny);
         
-        v2nx = v2n * x;
-        v2ny = v2n * y;
         
-        v2tx = v2n * ux;
-        v2ty = v2n * uy;
         
-        vx1 = v1nx + v1tx ;
-        vy1 = v1ny + v1ty;
-        vx2 = v2nx + v2tx;
-        vy2 = v2ny + v2ty;
-         
-        a.setMoveX(vx1);
-        a.setMoveY(vy1);
-        System.out.println("vx1: " + vx1 + "vy1: " + vy1);
-        b.setMoveX(vx2);
-        b.setMoveY(vy2);
-        System.out.println("vx2: " + vx2 + "vy2: " + vy2);
     }
     public void descolision(Bola a, Bola b){
         double aux = (a.getX() +b.getX())/2;
         double auy = (a.getY() +b.getY())/2;
         
-        double midx = a.getX() -b.getX();
-        double midy = a.getY() -b.getY();
+        double midx = b.getX()-a.getX() ;
+        double midy = b.getY() -a.getY();
         double magmid = sqrt(midx*midx +midy*midy);
         midx /= magmid;
         midy /= magmid;
