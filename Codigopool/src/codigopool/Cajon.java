@@ -3,6 +3,7 @@ package codigopool;
 
 
 import java.awt.Graphics;
+import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 
@@ -53,25 +54,28 @@ public class Cajon {
                 cajon.get(i).setMoveY(aux2);
             }
         }
-        System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
+        
     }
     
     public void ColisionBall(){
         for (int i = 0; i < cajon.size(); i++) {
             
-            for (int j = 0; j < cajon.size(); j++) {
+            for (int j = 1; j < cajon.size(); j++) {
                 
                 if(i == j){
                     continue;
                 }
                 double aux = checkdiametro(cajon.get(i), cajon.get(j));
                 if(  21 >= aux){                   
+                    descolision(cajon.get(i), cajon.get(j));
                     changerColision(cajon.get(i), cajon.get(j));
-                    //descolision(cajon.get(i), cajon.get(j));
+                    
+                    
                 }
             }
         }
-        System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
+        System.out.println("BolaJUGADOR: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
+        System.out.println("BolaCOLOR: " + cajon.get(1).getX() + " " + cajon.get(1).getY());
     }
     
     
@@ -107,12 +111,12 @@ public class Cajon {
         vfinal2 = 2*velox1;
         velox1 = vfinal;
         velox2 = vfinal2;
-        a.setPosition(x, y);
+        
         a.setMoveX(velox1*cosx-veloy1*siny);
         a.setMoveY(veloy1*cosx+velox1*siny);
         b.setMoveX(velox2*cosx-veloy2*siny);
         b.setMoveY(veloy2*cosx+velox2*siny);
-        
+        //a.setPosition(x, y);
         
         
     }
@@ -126,8 +130,8 @@ public class Cajon {
         midx /= magmid;
         midy /= magmid;
         
-        b.setPosition(midx+aux*10, midy+auy*10);
-        a.setPosition(midx-aux*10, midy-auy*10);
+        b.setPosition(aux+midx*10, auy+midy*10);
+        a.setPosition(aux-midx*10, auy-midy*10);
     }
     public double checkdiametro(Bola a, Bola b){
         double x = b.getX() -a.getX();
