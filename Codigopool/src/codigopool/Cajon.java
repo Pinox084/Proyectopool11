@@ -14,13 +14,12 @@ public class Cajon {
     }
     
     public void newBola(Bola nueva){
-        nueva.setMoveX(10);
-        nueva.setMoveY(10);
+        
         cajon.add(nueva);
     }
     
     public void newPlayer(BolaJugador x){
-        x.setMoveX(10);
+        
         cajon.add(x);
     }
     public void mover(){
@@ -48,11 +47,17 @@ public class Cajon {
                 double aux = cajon.get(i).getMoveX();
                 aux = aux * -1;
                 cajon.get(i).setMoveX(aux);
+                double a = cajon.get(i).getX();
+                double b = cajon.get(i).getY();
+                cajon.get(i).setPosition(a+aux,b);
             }
             if((cajon.get(i).getY() <= y+10) || (cajon.get(i).getY() >= height+190) ){
                 double aux2 = cajon.get(i).getMoveY();
                 aux2 = aux2 * -1;
                 cajon.get(i).setMoveY(aux2);
+                double a = cajon.get(i).getX();
+                double b = cajon.get(i).getY();
+                cajon.get(i).setPosition(a,b+aux2);
             }
         }
         //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
