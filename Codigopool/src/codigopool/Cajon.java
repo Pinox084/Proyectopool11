@@ -3,7 +3,6 @@ package codigopool;
 
 
 import java.awt.Graphics;
-import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 
@@ -15,11 +14,13 @@ public class Cajon {
     }
     
     public void newBola(Bola nueva){
-        
+        nueva.setMoveX(10);
+        nueva.setMoveY(10);
         cajon.add(nueva);
     }
     
     public void newPlayer(BolaJugador x){
+        x.setMoveX(10);
         cajon.add(x);
     }
     public void mover(){
@@ -54,7 +55,7 @@ public class Cajon {
                 cajon.get(i).setMoveY(aux2);
             }
         }
-        
+        //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
     }
     
     public void ColisionBall(){
@@ -70,18 +71,16 @@ public class Cajon {
                     descolision(cajon.get(i), cajon.get(j));
                     changerColision(cajon.get(i), cajon.get(j));
                     
-                    
                 }
             }
         }
-        System.out.println("BolaJUGADOR: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
-        System.out.println("BolaCOLOR: " + cajon.get(1).getX() + " " + cajon.get(1).getY());
+        //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
     }
     
     
     public void changerColision(Bola a, Bola b){
-        double x = b.getX() - a.getX();
-        double y = b.getY() - a.getY();
+        double x = a.getX() - b.getX();
+        double y = a.getY() - b.getY();
         double angle = Math.atan2(y,x);
         
         double vx1, vy1;
@@ -107,31 +106,37 @@ public class Cajon {
         double vfinal;
         double vfinal2;
         
-        vfinal = 2*velox2;
-        vfinal2 = 2*velox1;
-        velox1 = vfinal;
-        velox2 = vfinal2;
-        
+        vfinal = velox1;
+        vfinal2 = velox2;
+        velox1 = vfinal2;
+        velox2 = vfinal;
+        //b.setPosition(b.getX()+ x, b.getY()+y);
+        //a.setPosition(x, y);
         a.setMoveX(velox1*cosx-veloy1*siny);
         a.setMoveY(veloy1*cosx+velox1*siny);
+        
         b.setMoveX(velox2*cosx-veloy2*siny);
         b.setMoveY(veloy2*cosx+velox2*siny);
-        //a.setPosition(x, y);
+        
+        System.out.println("Bola Blanca: " + a.getMoveX() + " " + a.getMoveY());
+        System.out.println("Bola Roja: " + b.getMoveX() + " " + b.getMoveY());
         
         
     }
     public void descolision(Bola a, Bola b){
-        double aux = (a.getX() +b.getX())/2;
-        double auy = (a.getY() +b.getY())/2;
+        double midx = (a.getX() +b.getX())/2;
+        double midy = (a.getY() +b.getY())/2;
         
-        double midx = b.getX()-a.getX() ;
-        double midy = b.getY() -a.getY();
-        double magmid = sqrt(midx*midx +midy*midy);
-        midx /= magmid;
-        midy /= magmid;
+        double aux = b.getX()-a.getX() ;
+        double auy = b.getY() -a.getY();
+        double mag = sqrt(aux*aux +auy*auy);
+        aux /= mag;
+        auy /= mag;
         
-        b.setPosition(aux+midx*10, auy+midy*10);
-        a.setPosition(aux-midx*10, auy-midy*10);
+        b.setPosition(midx+aux*10, midy+auy*10);
+        a.setPosition(midx-aux*10, midy-auy*10);
+        //System.out.println("Bola: " + a.getX() + " " + a.getY());
+        //System.out.println("Bola: " + b.getX() + " " + b.getY());
     }
     public double checkdiametro(Bola a, Bola b){
         double x = b.getX() -a.getX();
