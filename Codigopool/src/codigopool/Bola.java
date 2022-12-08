@@ -8,7 +8,6 @@ public abstract class Bola {
     protected double locationY;
     protected double moveX;
     protected double moveY;
-    protected final float radio = 50;
     private int number;
     
     public Bola(double x, double y, int n){
@@ -32,10 +31,10 @@ public abstract class Bola {
         
         moveX *= 0.99;
         moveY *= 0.99;
-        if((Math.abs(moveX) <= 0.10f)){
+        if((Math.abs(moveX) <= 0.0010f)){
             moveX = 0;
         }
-        if((Math.abs(moveY) <= 0.10f)){
+        if((Math.abs(moveY) <= 0.0010f)){
             moveY = 0;
         }
         

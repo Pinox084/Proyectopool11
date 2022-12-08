@@ -37,6 +37,21 @@ public class Cajon {
         return cajon.get(0);
     }
     
+    public void checkpuntos(Huecos a){
+        for (int i = 0; i < cajon.size(); i++) {
+            double aux = a.getX() - cajon.get(i).getX();
+            double auy = a.getY() - cajon.get(i).getY();
+            double mag = Math.sqrt(aux*aux+auy*auy);
+            if(mag<= 11){
+                if(cajon.get(i).getNumber() == 0){
+                    cajon.get(0).setPosition(600, 300);
+                }else{
+                    
+                    cajon.remove(cajon.get(i));
+                }
+            }
+        }
+    }
     public void ColisionBorder(float x, float y, float width, float height){
 
         

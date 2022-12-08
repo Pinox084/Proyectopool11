@@ -26,12 +26,12 @@ public class Mesa {
     }
     
     public void newHuecos(){
-        huecos.add(new Huecos(200,190,20));
-        huecos.add(new Huecos(490,190,20));
-        huecos.add(new Huecos(780,190,20));
-        huecos.add(new Huecos(200,490,20));
-        huecos.add(new Huecos(490,490,20));
-        huecos.add(new Huecos(780,490,20));
+        huecos.add(new Huecos(200,190,30));
+        huecos.add(new Huecos(490,190,30));
+        huecos.add(new Huecos(780,190,30));
+        huecos.add(new Huecos(200,490,30));
+        huecos.add(new Huecos(490,490,30));
+        huecos.add(new Huecos(780,490,30));
     }
     
     public void golpear(double a, double b){
@@ -40,7 +40,10 @@ public class Mesa {
         b = b - player.getY();
         caja.setMove(a,b);
     }
-    public void game(){        
+    public void game(){
+        for (int i = 0; i < huecos.size(); i++) {
+            caja.checkpuntos(huecos.get(i));
+        }
         caja.ColisionBall();
         caja.ColisionBorder(X, Y, width, height);
         caja.mover();
