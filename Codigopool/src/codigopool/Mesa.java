@@ -55,6 +55,9 @@ public class Mesa {
         g.setColor(Color.green);
         g.fillRect((int)X, (int)Y, (int)width, (int)height);
         caja.paint(g);
+        for (int i = 0; i < 6; i++) {
+            huecos.get(i).paint(g);
+        }
         
     }
     
