@@ -61,18 +61,20 @@ public class Cajon {
         }
     }
     
-    public void checkdiscount(){
+     public int checkdiscount(){
         if(flagwhite == 1){
             if(flagcolor == 0){
-                //descuento
+                flagwhite=0;
+                return -1;
             }
             
         }else{
             if(flagcolor == 1){
-                //suma puntos
-                flagcolor =0;
+                flagcolor=0;
+                return 1;
             }
         }
+        return 0;  
     }
     public void ColisionBorder(float x, float y, float width, float height){
 
