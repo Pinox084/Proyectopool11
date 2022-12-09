@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class Mesa {
+    private int puntos = 0;
     private float X;
     private float Y;
     private float width;
