@@ -48,12 +48,16 @@ public class Mesa {
         for (int i = 0; i < huecos.size(); i++) {
             caja.checkpuntos(huecos.get(i));
         }
+        puntos = puntos+caja.checkdiscount();
+        if(puntos<0){
+            puntos = 0;
+        }
         caja.ColisionBall();
         caja.ColisionBorder(X, Y, width, height);
         caja.mover();
-        if( caja.checkCantidad() == 1){
-            //win;
-        }
+        System.out.println("puntos : "+puntos);
+        /*if( caja.checkCantidad() == 1){   
+        }*/
         
     }
     public void initPosition(){
