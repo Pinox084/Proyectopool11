@@ -35,10 +35,14 @@ public class Mesa {
     }
     
     public void golpear(double a, double b){
+        
         Bola player = caja.getBall();
-        a = a - player.getX();
-        b = b - player.getY();
-        caja.setMove(a,b);
+        if(player.getMoveX()== 0 && player.getMoveY() == 0){
+            a = a - player.getX();
+            b = b - player.getY();
+            caja.setMove(a,b);
+        }
+        
     }
     public void game(){
         for (int i = 0; i < huecos.size(); i++) {
