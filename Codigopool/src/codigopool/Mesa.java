@@ -42,6 +42,7 @@ public class Mesa {
             a = a - player.getX();
             b = b - player.getY();
             caja.setMove(a,b);
+            game();
         }
         
     }

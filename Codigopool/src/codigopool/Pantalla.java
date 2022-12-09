@@ -2,6 +2,7 @@
 package codigopool;
 
 import Controles.ControlJugador;
+import Controles.Puntuacion;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
@@ -13,14 +14,16 @@ public class Pantalla extends JFrame {
     
     public Mesa mesita;
     private ControlJugador mouse;
+    public Puntuacion score;
     public Pantalla() throws InterruptedException{
        super();
        p = this;
        mesita = new Mesa(200,200,600,300);
    
-       Puntuacion x = new Puntuacion();
-       x.setBounds(0, 0, 1000, 120);
-       add(x);
+       score = new Puntuacion();
+       score.setBounds(0, 0, 1000, 120);
+       score.setBackground(Color.red);
+       add(score);
        
        mouse = new ControlJugador(mesita);
        mouse.setBounds(0, 0, 1000, 600);
@@ -38,20 +41,20 @@ public class Pantalla extends JFrame {
        setDefaultCloseOperation(EXIT_ON_CLOSE);
        setVisible(true);
        
-       do{
+       /*do{
            
            mesita.game();
            
            repaint();
            Thread.sleep(3);
-       }while(t == 0);
+       }while(t == 0);*/
        
     }
     
     
     public void paint(Graphics g){
         super.paint(g);
-        mesita.paint(g);
+        //mesita.paint(g);
                
     }
 }

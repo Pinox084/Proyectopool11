@@ -3,6 +3,8 @@ package Controles;
 
 import codigopool.Mesa;
 import codigopool.Pantalla;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -21,12 +23,13 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     public ControlJugador(Mesa mesita) {
         super();
         this.mesita = mesita;
+        
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
         this.addKeyListener(this);
-        Timer t = new Timer(16, this);
+        Timer t = new Timer(2, this);
         t.start();
-        
+       
     
 
     }
@@ -68,8 +71,8 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        //Pantalla.p.mesita.game();
-        //Pantalla.p.repaint();
+        Pantalla.p.mesita.game();
+        Pantalla.p.repaint();
     }
 
     public void keyTyped(KeyEvent e) {
@@ -106,10 +109,10 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
         
     }
 
-    /*public void paint(Graphics g) {
-
+    public void paint(Graphics g) {
         super.paint(g);
-    }*/
+        mesita.paint(g);
+    }
 }
 
    
