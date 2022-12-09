@@ -8,9 +8,12 @@ import java.util.ArrayList;
 
 public class Cajon {
     private ArrayList<Bola> cajon;
+    private int flagcolor;
+    private int flagwhite;
     public Cajon(){
         cajon = new ArrayList();
-        
+        flagcolor = 0;
+        flagwhite = 0;
     }
     
     public void newBola(Bola nueva){
@@ -22,6 +25,7 @@ public class Cajon {
         
         cajon.add(x);
     }
+    
     public void mover(){
        
         for (int i = 0; i < cajon.size(); i++) {
@@ -37,6 +41,7 @@ public class Cajon {
         return cajon.get(0);
     }
     
+    
     public void checkpuntos(Huecos a){
         for (int i = 0; i < cajon.size(); i++) {
             double aux = a.getX() - cajon.get(i).getX();
@@ -45,10 +50,27 @@ public class Cajon {
             if(mag<= 11){
                 if(cajon.get(i).getNumber() == 0){
                     cajon.get(0).setPosition(600, 300);
+                    flagwhite =1;
+                    
                 }else{
                     
                     cajon.remove(cajon.get(i));
+                    flagcolor=1;
                 }
+            }
+        }
+    }
+    
+    public void checkdiscount(){
+        if(flagwhite == 1){
+            if(flagcolor == 0){
+                //descuento
+            }
+            
+        }else{
+            if(flagcolor == 1){
+                //suma puntos
+                flagcolor =0;
             }
         }
     }
@@ -97,7 +119,6 @@ public class Cajon {
         //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
     }
     
-    
     public void changerColision(Bola a, Bola b){
         double x = a.getX() - b.getX();
         double y = a.getY() - b.getY();
@@ -143,6 +164,7 @@ public class Cajon {
         
         
     }
+    
     public void descolision(Bola a, Bola b){
         double midx = (a.getX() +b.getX())/2;
         double midy = (a.getY() +b.getY())/2;
@@ -158,6 +180,7 @@ public class Cajon {
         //System.out.println("Bola: " + a.getX() + " " + a.getY());
         //System.out.println("Bola: " + b.getX() + " " + b.getY());
     }
+    
     public double checkdiametro(Bola a, Bola b){
         double x = b.getX() -a.getX();
         double y = b.getY() -a.getY();
@@ -167,10 +190,31 @@ public class Cajon {
         
         return result;
     }
+    
+    public int checkCantidad(){
+        return cajon.size();
+    }
+    public boolean checkvelocity(){
+        for (int i = 0; i < cajon.size(); i++) {
+            if(cajon.get(i).getMoveX()!= 0){
+                return true;
+            }
+            if(cajon.get(i).getMoveY()!= 0){
+                return true;
+            }
+            checkdiscount();
+            
+        }
+        System.out.println("False");
+        flagcolor =0;
+        flagwhite = 0;
+        return false;
+    }
     public void paint(Graphics g){
         for(int i=0; i<cajon.size();i++){
            cajon.get(i).paint(g);
            
         }
     }
+    
 }

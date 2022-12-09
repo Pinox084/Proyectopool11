@@ -47,6 +47,9 @@ public class Mesa {
         caja.ColisionBall();
         caja.ColisionBorder(X, Y, width, height);
         caja.mover();
+        if( caja.checkCantidad() == 1){
+            //win;
+        }
         
     }
     public void initPosition(){
