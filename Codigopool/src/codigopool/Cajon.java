@@ -111,7 +111,7 @@ public class Cajon {
                     continue;
                 }
                 double aux = checkdiametro(cajon.get(i), cajon.get(j));
-                if(  21 >= aux){                   
+                if(  20 >= aux){                   
                     descolision(cajon.get(i), cajon.get(j));
                     changerColision(cajon.get(i), cajon.get(j));
                     

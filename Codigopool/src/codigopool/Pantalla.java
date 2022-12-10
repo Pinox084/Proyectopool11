@@ -41,17 +41,12 @@ public class Pantalla extends JFrame {
        setDefaultCloseOperation(EXIT_ON_CLOSE);
        setVisible(true);
        
-       /*do{
-           
-           mesita.game();
-           
-           repaint();
-           Thread.sleep(3);
-       }while(t == 0);*/
        
     }
     
-    
+    public void changeScore(int n){
+        score.changeText(n);
+    }
     public void paint(Graphics g){
         super.paint(g);
         //mesita.paint(g);

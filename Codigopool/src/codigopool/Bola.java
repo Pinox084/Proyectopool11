@@ -29,12 +29,12 @@ public abstract class Bola {
     }
     public void friction(){
         
-        moveX *= 0.99;
-        moveY *= 0.99;
-        if((Math.abs(moveX) <= 0.0010f)){
+        moveX *= 0.98;
+        moveY *= 0.98;
+        if((Math.abs(moveX) <= 0.010f)){
             moveX = 0;
         }
-        if((Math.abs(moveY) <= 0.0010f)){
+        if((Math.abs(moveY) <= 0.010f)){
             moveY = 0;
         }
         
@@ -67,6 +67,7 @@ public abstract class Bola {
     }
     public void paint(Graphics g){
        
-        
+        g.setColor(Color.black);
+        g.fillOval((int)getX()-12, (int)getY()-12,25,25);
     }
 }

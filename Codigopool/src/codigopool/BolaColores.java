@@ -24,21 +24,33 @@ public class BolaColores extends Bola {
     public void paint(Graphics g){
         switch (tipo){
                 case 1:
+                    super.paint(g);
                     g.setColor(Color.red);
                     g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
                     break;
                 case 2:
+                    super.paint(g);
                     g.setColor(Color.blue);
                     g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
                     break;
                 case 3:
+                    super.paint(g);
                     g.setColor(Color.yellow);
                     g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
                     
                     break;
                 case 4:
+                    super.paint(g);
                     g.setColor(Color.orange);
                     g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
                     break;
         }
     }

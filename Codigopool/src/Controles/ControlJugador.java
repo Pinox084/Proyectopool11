@@ -71,8 +71,11 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Pantalla.p.mesita.game();
-        Pantalla.p.repaint();
+        if(mesita.caja.checkvelocity() == true){
+            Pantalla.p.mesita.game();
+            Pantalla.p.repaint();
+        }
+        
     }
 
     public void keyTyped(KeyEvent e) {
@@ -82,10 +85,12 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.VK_A == e.getKeyCode()) {
+            Pantalla.p.changeScore(1);
             System.out.println("presionaste A ");
         }
         if (e.VK_D == e.getKeyCode()) {
             System.out.println("presionaste D ");
+            Pantalla.p.changeScore(2);
         }
         if (e.VK_1 == e.getKeyCode()) {
             System.out.println("presionaste 8 ");
