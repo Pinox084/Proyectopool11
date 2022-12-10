@@ -50,6 +50,6 @@ public class Pantalla extends JFrame {
     public void paint(Graphics g){
         super.paint(g);
         //mesita.paint(g);
-               
+        score.changeText(mesita.puntos);
     }
 }

@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class Mesa {
 
-    private int puntos = 0;
+    public int puntos;
     private float X;
     private float Y;
     private float width;
@@ -26,6 +26,7 @@ public class Mesa {
         huecos = new ArrayList();
         caja = new Cajon();
         flaginit = false;
+        puntos = 0;
         newHuecos();
     }
 
@@ -78,6 +79,8 @@ public class Mesa {
                     caja.newBola(new BolaColores(pox, poy, i));
 
                 }
+                Pantalla.p.repaint();
+                flaginit = true;
                 
             }
             if(n==15){
