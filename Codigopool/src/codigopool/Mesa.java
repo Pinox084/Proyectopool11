@@ -16,6 +16,9 @@ public class Mesa {
     public Cajon caja;
     private ArrayList<Huecos> huecos;
     public boolean flaginit;
+    private double potx;
+    private double poty;
+    private double mod;
     // private JLabel mesa;
 
     public Mesa(float x, float y, float a, float b) {
@@ -43,14 +46,47 @@ public class Mesa {
 
         Bola player = caja.getBall();
         if (caja.checkvelocity() == false) {
-            a = a - player.getX();
-            b = b - player.getY();
-            caja.setMove(a, b);
+            if(mod != 0){
+                modificadorPotencia(player, a,b);
+                caja.setMove(potx, poty);
+            }
+            
+            /*potx = a - player.getX();
+            poty = b - player.getY();
+            System.out.println(potx+ " " + poty);
+            caja.setMove(potx, poty);*/
+            
+            mod = 0;
             game();
         }
 
     }
-
+    
+    public void modificadorPotencia(Bola player, double a , double b){
+        a = a - player.getX();
+        b = b - player.getY();
+        double tangente = b/a;
+        double angulo = Math.atan2(b,a);
+        System.out.println(angulo);
+        potx = 20 * Math.cos(angulo);
+        poty = 20 * Math.sin(angulo);
+        potx *= mod*10;
+        poty *= mod*10;
+       
+        
+    }
+    
+    public void Modificador(int n){
+        mod += n;
+        if(mod <= 0){
+            mod = 0;
+        }
+        if(mod >= 3){
+            mod =3;
+        }
+        System.out.println(mod);
+    }
+    
     public void game() {
 
         for (int i = 0; i < huecos.size(); i++) {
@@ -63,7 +99,7 @@ public class Mesa {
         caja.ColisionBall();
         caja.ColisionBorder(X, Y, width, height);
         caja.mover();
-        System.out.println("puntos : " + puntos);
+        //System.out.println("puntos : " + puntos);
         /*if( caja.checkCantidad() == 1){   
         }*/
 
@@ -93,7 +129,12 @@ public class Mesa {
         }
 
     }
-
+    
+    public void Restart(){
+        caja.clear();
+        flaginit = false;
+        Pantalla.p.repaint();
+    }
     public void paint(Graphics g) {
 
         g.setColor(Color.LIGHT_GRAY);

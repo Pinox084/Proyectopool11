@@ -20,6 +20,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     private double mouseX;
     private double mouseY;
     private Mesa mesita;
+    int n;
     public ControlJugador(Mesa mesita) {
         super();
         this.mesita = mesita;
@@ -85,12 +86,17 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.VK_A == e.getKeyCode()) {
-            Pantalla.p.changeScore(1);
+            mesita.Modificador(-1);
             System.out.println("presionaste A ");
         }
-        if (e.VK_D == e.getKeyCode()) {
+        if (e.VK_W == e.getKeyCode()) {
+            mesita.Modificador(1);
             System.out.println("presionaste D ");
-            Pantalla.p.changeScore(2);
+            
+        }
+        if(e.VK_R == e.getKeyCode()){
+            mesita.Restart();
+            
         }
         if (e.VK_1 == e.getKeyCode()) {
             mesita.initPosition(8);

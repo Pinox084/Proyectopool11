@@ -161,8 +161,8 @@ public class Cajon {
         b.setMoveX(velox2*cosx-veloy2*siny);
         b.setMoveY(veloy2*cosx+velox2*siny);
         
-        System.out.println("Bola Blanca: " + a.getMoveX() + " " + a.getMoveY());
-        System.out.println("Bola Roja: " + b.getMoveX() + " " + b.getMoveY());
+        //System.out.println("Bola Blanca: " + a.getMoveX() + " " + a.getMoveY());
+       // System.out.println("Bola Roja: " + b.getMoveX() + " " + b.getMoveY());
         
         
     }
@@ -211,6 +211,14 @@ public class Cajon {
         flagcolor =0;
         flagwhite = 0;
         return false;
+    }
+    
+    public void clear(){
+        while(cajon.size() != 0){
+            cajon.remove(0);
+        }
+            
+        
     }
     public void paint(Graphics g){
         for(int i=0; i<cajon.size();i++){
