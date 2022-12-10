@@ -15,6 +15,7 @@ public class Mesa {
     private float height;
     public Cajon caja;
     private ArrayList<Huecos> huecos;
+    public boolean flaginit;
     // private JLabel mesa;
 
     public Mesa(float x, float y, float a, float b) {
@@ -24,7 +25,7 @@ public class Mesa {
         height = b;
         huecos = new ArrayList();
         caja = new Cajon();
-        initPosition();
+        flaginit = false;
         newHuecos();
     }
 
@@ -67,13 +68,25 @@ public class Mesa {
 
     }
 
-    public void initPosition() {
-        caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
-        for (int i = 1; i < 8; i++) {
-            float pox = X + 50 + i * 10;
-            float poy = Y + 10 + (float) i * 20;
-            caja.newBola(new BolaColores(pox, poy, i));
+    public void initPosition(int n) {
+        if (flaginit == false) {
+            if (n == 8) {
+                caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
+                for (int i = 1; i < n; i++) {
+                    float pox = X + 50 + i * 10;
+                    float poy = Y + 10 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
 
+                }
+                
+            }
+            if(n==15){
+                caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
+                Pantalla.p.repaint();
+                flaginit = true;
+            }
+            
+            
         }
 
     }

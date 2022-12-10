@@ -64,7 +64,7 @@ public class Cajon {
      public int checkdiscount(){
         if(flagwhite == 1){
             if(flagcolor == 0){
-                flagwhite=0;
+                flagwhite = 0;
                 return -1;
             }
             
@@ -207,7 +207,7 @@ public class Cajon {
             checkdiscount();
             
         }
-        System.out.println("False");
+        //System.out.println("False");
         flagcolor =0;
         flagwhite = 0;
         return false;

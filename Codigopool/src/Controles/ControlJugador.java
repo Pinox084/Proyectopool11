@@ -93,11 +93,13 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
             Pantalla.p.changeScore(2);
         }
         if (e.VK_1 == e.getKeyCode()) {
+            mesita.initPosition(8);
             System.out.println("presionaste 8 ");
             //Pantalla.p.setEleccion(1);
 
         }
         if (e.VK_2 == e.getKeyCode()) {
+            mesita.initPosition(15);
             System.out.println("presionaste 15 ");
             //Pantalla.p.setEleccion(2);
         }
