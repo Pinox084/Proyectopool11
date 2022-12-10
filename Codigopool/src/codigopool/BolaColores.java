@@ -17,6 +17,18 @@ public class BolaColores extends Bola {
         if(n>6 && n<=8){
             tipo=4;
         }
+        if(n>8 && n<=10){
+            tipo=5;
+        }
+        if(n>10 && n<=12){
+            tipo=6;
+        }
+        if(n>12 && n<=14){
+            tipo=7;
+        }
+        if(n>14 && n<=16){
+            tipo=8;
+        }
     }
     
     
@@ -52,8 +64,37 @@ public class BolaColores extends Bola {
                     g.setColor(Color.black);
                     g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
                     break;
+                case 5:
+                    super.paint(g);
+                    g.setColor(Color.cyan);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
+                    break;
+                case 6:
+                    super.paint(g);
+                    g.setColor(Color.PINK);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
+                    break;
+                case 7:
+                    super.paint(g);
+                    g.setColor(Color.magenta);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-3, (int)getY()+3);
+                    break;
+                case 8:
+                    super.paint(g);
+                    g.setColor(Color.black);
+                    g.fillOval((int)getX()-10, (int)getY()-10,20,20);
+                    g.setColor(Color.white);
+                    g.fillOval((int)getX()-6, (int)getY()-7, 15,15);
+                    g.setColor(Color.black);
+                    g.drawString(""+this.getNumber(), (int)getX()-5, (int)getY()+5);
+                    break;
         }
     }
             
 }
-
