@@ -65,9 +65,7 @@ public class Mesa {
     public void modificadorPotencia(Bola player, double a , double b){
         a = a - player.getX();
         b = b - player.getY();
-        double tangente = b/a;
-        double angulo = Math.atan2(b,a);
-        System.out.println(angulo);
+        double angulo = Math.atan2(b,a);       
         potx = 20 * Math.cos(angulo);
         poty = 20 * Math.sin(angulo);
         potx *= mod*10;

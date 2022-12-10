@@ -5,6 +5,7 @@ import codigopool.Mesa;
 import codigopool.Pantalla;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -24,7 +25,11 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     public ControlJugador(Mesa mesita) {
         super();
         this.mesita = mesita;
-        
+        ImageIcon foto = new ImageIcon("fondo.png");
+        JLabel marco = new JLabel();
+        marco.setBounds(0, 0, 1000, 600);
+        marco.setIcon(new ImageIcon(foto.getImage().getScaledInstance(1000, 600, Image.SCALE_SMOOTH)));
+        add(marco);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
         this.addKeyListener(this);

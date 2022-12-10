@@ -5,7 +5,10 @@ import Controles.ControlJugador;
 import Controles.Puntuacion;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 
 public class Pantalla extends JFrame {
@@ -27,12 +30,11 @@ public class Pantalla extends JFrame {
        
        mouse = new ControlJugador(mesita);
        mouse.setBounds(0, 0, 1000, 600);
-       mouse.setBackground(Color.gray);
+       
        addKeyListener(mouse);       
        add(mouse);
        
        int t = 0;
-       
        
        
        setLayout(null); 
@@ -49,7 +51,7 @@ public class Pantalla extends JFrame {
     }
     public void paint(Graphics g){
         super.paint(g);
-        //mesita.paint(g);
+        
         score.changeText(mesita.puntos);
     }
 }
