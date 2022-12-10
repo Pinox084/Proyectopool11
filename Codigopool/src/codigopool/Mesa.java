@@ -34,12 +34,12 @@ public class Mesa {
     }
 
     public void newHuecos() {
-        huecos.add(new Huecos(200, 190, 30));
-        huecos.add(new Huecos(490, 190, 30));
-        huecos.add(new Huecos(780, 190, 30));
-        huecos.add(new Huecos(200, 490, 30));
-        huecos.add(new Huecos(490, 490, 30));
-        huecos.add(new Huecos(780, 490, 30));
+        huecos.add(new Huecos(210,200,30));
+        huecos.add(new Huecos(500,200,30));
+        huecos.add(new Huecos(790,200,30));
+        huecos.add(new Huecos(210,500,30));
+        huecos.add(new Huecos(500,500,30));
+        huecos.add(new Huecos(790,500,30));
     }
 
     public void golpear(double a, double b) {
@@ -107,18 +107,50 @@ public class Mesa {
         if (flaginit == false) {
             if (n == 8) {
                 caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
-                for (int i = 1; i < n; i++) {
-                    float pox = X + 50 + i * 10;
-                    float poy = Y + 10 + (float) i * 20;
+                for (int i = 1; i < 5; i++) {
+                    float pox = X + 80 + i * 10;
+                    float poy = Y + 65 + (float) i * 20;
                     caja.newBola(new BolaColores(pox, poy, i));
-
                 }
+                
+                for (int i = 5; i < 8; i++) {
+                    float pox = X + 25 + i * 10;
+                    float poy = Y +0 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
+                }
+                float pox = X + -15 + 8 * 10;
+                float poy = Y -25 + (float) 8 * 20;
+                caja.newBola(new BolaColores(pox, poy, 8));
                 Pantalla.p.repaint();
                 flaginit = true;
                 
             }
             if(n==15){
                 caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
+                for (int i = 1; i < 6; i++) {
+                    float pox = X + 90 + i * 10;
+                    float poy = Y + 80 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
+                }
+                
+                for (int i = 6; i < 10; i++) {
+                    float pox = X + 25 + i * 10;
+                    float poy = Y +0 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
+                }
+                for (int i = 10; i < 13; i++) {
+                    float pox = X + -30 + i * 10;
+                    float poy = Y +-60 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
+                }
+                for (int i = 13; i < 15; i++) {
+                    float pox = X + -75 + i * 10;
+                    float poy = Y -100 + (float) i * 20;
+                    caja.newBola(new BolaColores(pox, poy, i));
+                }
+                float pox = X + -110 + 15 * 10;
+                float poy = Y -120 + (float) 15 * 20;
+                caja.newBola(new BolaColores(pox, poy, 15));
                 Pantalla.p.repaint();
                 flaginit = true;
             }
