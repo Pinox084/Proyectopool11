@@ -36,9 +36,9 @@ public class Mesa {
     }
 
     public void newHuecos() {
-        huecos.add(new Huecos(210,200,30));
+        huecos.add(new Huecos(205,205,30));
         huecos.add(new Huecos(500,200,30));
-        huecos.add(new Huecos(790,200,30));
+        huecos.add(new Huecos(785,205,30));
         huecos.add(new Huecos(210,490,30));
         huecos.add(new Huecos(500,495,30));
         huecos.add(new Huecos(790,490,30));

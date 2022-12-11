@@ -39,6 +39,7 @@ public class Tester1 {
     
     @Test
     public void TestDiametro(){
+        //Test que corrobora la colision entre dos Bolas
         BolaJugador player = new BolaJugador(10,10,0);
         BolaColores color = new BolaColores(12,12,1);
         assertTrue(caja.checkdiametro(player,color));
@@ -48,7 +49,8 @@ public class Tester1 {
     
     @Test()
     public void TestRestart(){
-        
+        /*Test que corrobora que el reinicio y seleccion de juego, exista una Bola
+        dentro del arreglo de Bolas*/
         mesita.Restart();
         mesita.initPosition(8);
         assertNotNull(mesita.caja.getBall());

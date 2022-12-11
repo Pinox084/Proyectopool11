@@ -1,6 +1,7 @@
 
 package Controles;
 
+import codigopool.Bola;
 import codigopool.Mesa;
 import codigopool.Pantalla;
 import java.awt.Color;
@@ -22,6 +23,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     private double mouseY;
     private Mesa mesita;
     int n;
+    private boolean line;
     public ControlJugador(Mesa mesita) {
         /*Constructor JPanel */
         super();
@@ -49,6 +51,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mousePressed(MouseEvent e) {
         mesita.golpear(e.getX(), e.getY());
+        line = false;
         Pantalla.p.score.changePotencia(-5);
     }
 
@@ -74,6 +77,19 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        mouseX = e.getX();
+        mouseY = e.getY();
+        if(mesita.caja.checkvelocity() == false){
+              line = true; 
+              Pantalla.p.repaint();
+            
+        }else{
+            line = false;
+        }
+            
+        
+    }
+    public void drawLine(Graphics g, int a, int b){
         
     }
     @Override
@@ -127,6 +143,16 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     public void paint(Graphics g) {
         super.paint(g);
         mesita.paint(g);
+        if(line == true){
+            Bola aux = mesita.caja.getBall();
+            if(aux != null){
+                g.setColor(Color.MAGENTA);
+                g.drawLine((int)aux.getX(), (int)aux.getY(),(int)mouseX , (int)mouseY);
+            }
+            
+            
+        }
+        
     }
 }
 

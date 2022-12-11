@@ -45,7 +45,10 @@ public class Cajon {
     }
     /*Metodo para retornar una copia de la instancia de la Bola del Jugador*/
     public Bola getBall(){
-        return cajon.get(0);
+        if(cajon.size() != 0){
+            return cajon.get(0);
+        }
+        return null;
     }
     
     /*Metodos Con los que se corrobora las colisiones entre las Clases y los Bordes*/
