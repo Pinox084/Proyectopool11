@@ -18,6 +18,7 @@ public class Pantalla extends JFrame {
     public Mesa mesita;
     private ControlJugador mouse;
     public Puntuacion score;
+    /*Constructor con generalizacion de Mesa, Puntuacion y Controles en el JFrame*/
     public Pantalla(){
        super();
        p = this;
@@ -45,7 +46,7 @@ public class Pantalla extends JFrame {
        
        
     }
-    
+    /*Metodo para cambio de puntaje*/
     public void changeScore(int n){
         score.changeText(n);
     }

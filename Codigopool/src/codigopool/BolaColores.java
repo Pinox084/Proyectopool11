@@ -4,6 +4,7 @@ import java.awt.Graphics;
 public class BolaColores extends Bola {
     int tipo;
     public BolaColores(double x, double y,int n){
+        /*Constructor*/
         super(x,y,n);
         if(n<=2){
             tipo=1;
@@ -33,6 +34,7 @@ public class BolaColores extends Bola {
     
     
     @Override
+    /*Pinta la Bola dependiendo del tipo*/
     public void paint(Graphics g){
         switch (tipo){
                 case 1:

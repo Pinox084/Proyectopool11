@@ -19,9 +19,10 @@ public class Mesa {
     private double potx;
     private double poty;
     private double mod;
-    // private JLabel mesa;
+    
 
     public Mesa(float x, float y, float a, float b) {
+        /*Constructor*/
         X = x;
         Y = y;
         width = a;
@@ -44,7 +45,7 @@ public class Mesa {
     }
 
     public void golpear(double a, double b) {
-
+        /*Ejecuta el movimiento de la Bola del jugador dependiendo de donde se apunte*/
         Bola player = caja.getBall();
         if (caja.checkvelocity() == false) {
             if(mod != 0){
@@ -60,6 +61,7 @@ public class Mesa {
     }
     
     public void modificadorPotencia(Bola player, double a , double b){
+        /*Modifica la potencia del golpe del palo*/
         a = a - player.getX();
         b = b - player.getY();
         double angulo = Math.atan2(b,a);       
@@ -72,6 +74,7 @@ public class Mesa {
     }
     
     public void Modificador(int n){
+        /*Cambia la constante de la potencia del golpe*/
         mod += n;
         if(mod <= 1){
             mod = 1;
@@ -83,7 +86,7 @@ public class Mesa {
     }
     
     public void game() {
-
+        /*Metodo que genera el loop y la revision de choques en el juego*/
         for (int i = 0; i < huecos.size(); i++) {
             caja.checkpuntos(huecos.get(i));
         }
@@ -101,6 +104,7 @@ public class Mesa {
     }
 
     public void initPosition(int n) {
+        /*Inicializa las posiciones de las Bolas*/
         if (flaginit == false) {
             if (n == 8) {
                 caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
@@ -158,8 +162,10 @@ public class Mesa {
     }
     
     public void Restart(){
+        /*Reinicia las posiciones del juego*/
         caja.clear();
         flaginit = false;
+        puntos = 0;
         Pantalla.p.repaint();
     }
     public void paint(Graphics g) {

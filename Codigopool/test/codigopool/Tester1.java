@@ -46,14 +46,10 @@ public class Tester1 {
     
     @Test()
     public void TestRestart(){
-       
+        
         mesita.Restart();
         mesita.initPosition(8);
         assertNotNull(mesita.caja.getBall());
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

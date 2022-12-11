@@ -11,7 +11,7 @@ public abstract class Bola {
     private int number;
     
     public Bola(double x, double y, int n){
-        
+        /*Constructor*/
         locationX = x;
         locationY = y;
         moveX = 0f;
@@ -20,7 +20,7 @@ public abstract class Bola {
     }
     
     
-    
+    /*Modifica la posicion de la Bola*/
     public void move(){
         locationX = locationX + moveX;
         locationY = locationY + moveY;
@@ -39,6 +39,7 @@ public abstract class Bola {
         }
         
     }
+    /*Getters y Setters*/
     public void setPosition(double x, double y){
         locationX = x;
         locationY = y;
@@ -65,6 +66,7 @@ public abstract class Bola {
     public int getNumber(){
         return number;
     }
+    /*Pintado borde de la Bola*/
     public void paint(Graphics g){
        
         g.setColor(Color.black);

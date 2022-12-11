@@ -4,8 +4,9 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Huecos {
+    /*Objeto que genera los huecos donde deben caer las Bolas, solo Requiere darle posicion y pintarlas*/
     private double x,y,width,height;
-    
+    /*Constructot*/
     public Huecos(double x, double y, double a){
         this.x = x;
         this.y = y;
@@ -15,7 +16,7 @@ public class Huecos {
     }
     
     
-    
+    /*Metodos*/
     public double getX(){
         return x;
     }

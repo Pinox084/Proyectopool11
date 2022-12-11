@@ -6,16 +6,21 @@ import java.awt.Graphics;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 
+
+/*Clase reunida en un arreglo de Bolas que corrobora toda accion de ellas entre si
+y los bordes de la mesa*/
 public class Cajon {
+    /*Propiedades*/
     private ArrayList<Bola> cajon;
     private int flagcolor;
     private int flagwhite;
+    /*Constructor*/
     public Cajon(){
         cajon = new ArrayList();
         flagcolor = 0;
         flagwhite = 0;
     }
-    
+    /*Metodos de agregacion del arreglo*/
     public void newBola(Bola nueva){
         
         cajon.add(nueva);
@@ -25,7 +30,7 @@ public class Cajon {
         
         cajon.add(x);
     }
-    
+    /*Metodo que genera en ciclo el movimiento de las Bolas*/
     public void mover(){
        
         for (int i = 0; i < cajon.size(); i++) {
@@ -33,16 +38,19 @@ public class Cajon {
         }
         
     }
+    /*Comando que genera el movimiento inicial de la Bola del Jugador al golpear*/
     public void setMove(double x, double y){
         cajon.get(0).setMoveX(x*0.05);
         cajon.get(0).setMoveY(y*0.05);
     }
+    /*Metodo para retornar una copia de la instancia de la Bola del Jugador*/
     public Bola getBall(){
         return cajon.get(0);
     }
     
-    
+    /*Metodos Con los que se corrobora las colisiones entre las Clases y los Bordes*/
     public void checkpuntos(Huecos a){
+        /*Metodo que chequea si cualquier bola entra a algun hueco*/
         for (int i = 0; i < cajon.size(); i++) {
             double aux = a.getX() - cajon.get(i).getX();
             double auy = a.getY() - cajon.get(i).getY();
@@ -61,23 +69,9 @@ public class Cajon {
         }
     }
     
-     public int checkdiscount(){
-        if(flagwhite == 1){
-            if(flagcolor == 0){
-                flagwhite = 0;
-                return -1;
-            }
-            
-        }else{
-            if(flagcolor == 1){
-                flagcolor=0;
-                return 1;
-            }
-        }
-        return 0;  
-    }
+     
     public void ColisionBorder(float x, float y, float width, float height){
-
+        /*Metodo que analiza los choques contra los bordes*/
         
         for (int i = 0; i < cajon.size(); i++) {
             
@@ -99,10 +93,11 @@ public class Cajon {
                 cajon.get(i).setPosition(a,b+aux2);
             }
         }
-        //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
+        
     }
     
     public void ColisionBall(){
+        /*Metodo que revisa las colisiones entre las bolas*/
         for (int i = 0; i < cajon.size(); i++) {
             
             for (int j = 1; j < cajon.size(); j++) {
@@ -118,10 +113,11 @@ public class Cajon {
                 }
             }
         }
-        //System.out.println("Bola: " + cajon.get(0).getX() + " " + cajon.get(0).getY());
+        
     }
     
     public void changerColision(Bola a, Bola b){
+        /*Metodo que genera el cambio de velocidades de las bolas en colision*/
         double x = a.getX() - b.getX();
         double y = a.getY() - b.getY();
         double angle = Math.atan2(y,x);
@@ -153,21 +149,20 @@ public class Cajon {
         vfinal2 = velox2;
         velox1 = vfinal2;
         velox2 = vfinal;
-        //b.setPosition(b.getX()+ x, b.getY()+y);
-        //a.setPosition(x, y);
+        
         a.setMoveX(velox1*cosx-veloy1*siny);
         a.setMoveY(veloy1*cosx+velox1*siny);
         
         b.setMoveX(velox2*cosx-veloy2*siny);
         b.setMoveY(veloy2*cosx+velox2*siny);
         
-        //System.out.println("Bola Blanca: " + a.getMoveX() + " " + a.getMoveY());
-       // System.out.println("Bola Roja: " + b.getMoveX() + " " + b.getMoveY());
+       
         
         
     }
     
     public void descolision(Bola a, Bola b){
+        /*Metodo que reposiciona las bolas tras detectar la colision*/
         double midx = (a.getX() +b.getX())/2;
         double midy = (a.getY() +b.getY())/2;
         
@@ -179,11 +174,12 @@ public class Cajon {
         
         b.setPosition(midx+aux*10, midy+auy*10);
         a.setPosition(midx-aux*10, midy-auy*10);
-        //System.out.println("Bola: " + a.getX() + " " + a.getY());
-        //System.out.println("Bola: " + b.getX() + " " + b.getY());
+        
     }
     
     public double checkdiametro(Bola a, Bola b){
+        /*Metodo que corrobora la distancia entre las bolas, ayuda al detectar si se detecta la
+        colision si la distancia entre ellas es menor al diametro entre ellas*/
         double x = b.getX() -a.getX();
         double y = b.getY() -a.getY();
         x = x*x;
@@ -193,7 +189,24 @@ public class Cajon {
         return result;
     }
     
+    public int checkdiscount(){
+        /*Genera el aumento de puntaje o descuentos tras la caida de las bolas en los huecos*/
+         if(flagwhite == 1){
+            if(flagcolor == 0){
+                flagwhite = 0;
+                return -1;
+            }
+            
+        }else{
+            if(flagcolor == 1){
+                flagcolor=0;
+                return 1;
+            }
+        }
+        return 0;  
+    }
     public int checkCantidad(){
+        
         return cajon.size();
     }
     public boolean checkvelocity(){
@@ -207,7 +220,7 @@ public class Cajon {
             checkdiscount();
             
         }
-        //System.out.println("False");
+        
         flagcolor =0;
         flagwhite = 0;
         return false;

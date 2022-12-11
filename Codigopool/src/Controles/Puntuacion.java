@@ -2,9 +2,7 @@ package Controles;
 
 public class Puntuacion extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Puntuacion
-     */
+    /*Panel de Puntuacion y Datos del Jugador*/
     public Puntuacion() {
         initComponents();
         jProgressBar1.setMaximum(3);

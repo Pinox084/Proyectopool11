@@ -23,6 +23,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     private Mesa mesita;
     int n;
     public ControlJugador(Mesa mesita) {
+        /*Constructor JPanel */
         super();
         this.mesita = mesita;
         ImageIcon foto = new ImageIcon("fondo.png");
@@ -39,7 +40,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     
 
     }
-
+    /*Controles de Eventos de Mouse y Teclado*/
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -58,7 +59,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        //System.out.println(e.getX() + " "+ e.getY());
+        
     }
 
     @Override
@@ -68,14 +69,13 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        //System.out.println(e.getX() + " "+ e.getY());
+        
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        //System.out.println(e.getX() + " "+ e.getY());
+        
     }
-
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(mesita.caja.checkvelocity() == true){
