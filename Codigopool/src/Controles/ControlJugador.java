@@ -48,6 +48,7 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mousePressed(MouseEvent e) {
         mesita.golpear(e.getX(), e.getY());
+        Pantalla.p.score.changePotencia(-5);
     }
 
     @Override
@@ -93,12 +94,12 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
         if (e.VK_S == e.getKeyCode()) {
             mesita.Modificador(-1);
             Pantalla.p.score.changePotencia(-1);
-            System.out.println("presionaste A ");
+            
         }
         if (e.VK_W == e.getKeyCode()) {
             mesita.Modificador(1);
             Pantalla.p.score.changePotencia(1);
-            System.out.println("presionaste D ");
+            
             
         }
         if(e.VK_R == e.getKeyCode()){
@@ -115,12 +116,6 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
             mesita.initPosition(15);
             System.out.println("presionaste 15 ");
             //Pantalla.p.setEleccion(2);
-        }
-        if(e.VK_5 == e.getKeyCode()){
-            //Pantalla.p.mesita.aux = 1;
-        }
-        if(e.VK_6 == e.getKeyCode()){
-            //Pantalla.p.mesita.aux = 0;
         }
     }
 

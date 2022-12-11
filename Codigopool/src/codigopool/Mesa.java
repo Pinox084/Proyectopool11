@@ -30,6 +30,7 @@ public class Mesa {
         caja = new Cajon();
         flaginit = false;
         puntos = 0;
+        mod = 1;
         newHuecos();
     }
 
@@ -72,8 +73,8 @@ public class Mesa {
     
     public void Modificador(int n){
         mod += n;
-        if(mod <= 0){
-            mod = 0;
+        if(mod <= 1){
+            mod = 1;
         }
         if(mod >= 3){
             mod =3;
