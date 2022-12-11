@@ -39,9 +39,9 @@ public class Mesa {
         huecos.add(new Huecos(210,200,30));
         huecos.add(new Huecos(500,200,30));
         huecos.add(new Huecos(790,200,30));
-        huecos.add(new Huecos(210,500,30));
-        huecos.add(new Huecos(500,500,30));
-        huecos.add(new Huecos(790,500,30));
+        huecos.add(new Huecos(210,490,30));
+        huecos.add(new Huecos(500,495,30));
+        huecos.add(new Huecos(790,490,30));
     }
 
     public void golpear(double a, double b) {
@@ -107,7 +107,7 @@ public class Mesa {
         /*Inicializa las posiciones de las Bolas*/
         if (flaginit == false) {
             if (n == 8) {
-                caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
+                caja.newPlayer(new BolaJugador(X + 300, Y + 100, 0));
                 for (int i = 1; i < 5; i++) {
                     float pox = X + 80 + i * 10;
                     float poy = Y + 65 + (float) i * 20;
@@ -127,7 +127,7 @@ public class Mesa {
                 
             }
             if(n==15){
-                caja.newPlayer(new BolaJugador(X + 300, Y + 20, 0));
+                caja.newPlayer(new BolaJugador(X + 300, Y + 100, 0));
                 for (int i = 1; i < 6; i++) {
                     float pox = X + 90 + i * 10;
                     float poy = Y + 80 + (float) i * 20;

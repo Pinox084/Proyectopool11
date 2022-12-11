@@ -8,12 +8,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Nicolás
- */
 public class Tester1 {
     private Mesa mesita;
+    private Cajon caja;
     public Tester1() {
     }
     
@@ -30,6 +27,7 @@ public class Tester1 {
         new Pantalla();
         mesita = new Mesa(0,0, 400, 300);
         mesita.initPosition(8);
+        caja = new Cajon();
     }
     
     
@@ -40,12 +38,11 @@ public class Tester1 {
     }
     
     @Test
-    public void TestGolpe(){
-        mesita.Modificador(3);
-        mesita.golpear(200, 300);
-        Bola x = mesita.caja.getBall();
-        assertNotNull(x.getMoveX());
-        assertNotNull(x.getMoveY());
+    public void TestDiametro(){
+        BolaJugador player = new BolaJugador(10,10,0);
+        BolaColores color = new BolaColores(12,12,1);
+        assertTrue(caja.checkdiametro(player,color));
+        
         
     }
     

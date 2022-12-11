@@ -105,8 +105,8 @@ public class Cajon {
                 if(i == j){
                     continue;
                 }
-                double aux = checkdiametro(cajon.get(i), cajon.get(j));
-                if(  20 >= aux){                   
+                boolean aux = checkdiametro(cajon.get(i), cajon.get(j));
+                if(  true == aux){                   
                     descolision(cajon.get(i), cajon.get(j));
                     changerColision(cajon.get(i), cajon.get(j));
                     
@@ -177,7 +177,7 @@ public class Cajon {
         
     }
     
-    public double checkdiametro(Bola a, Bola b){
+    public boolean checkdiametro(Bola a, Bola b){
         /*Metodo que corrobora la distancia entre las bolas, ayuda al detectar si se detecta la
         colision si la distancia entre ellas es menor al diametro entre ellas*/
         double x = b.getX() -a.getX();
@@ -185,8 +185,10 @@ public class Cajon {
         x = x*x;
         y = y*y;
         double result = sqrt(x+y);
-        
-        return result;
+        if(result <= 20){
+            return true;
+        }
+        return false;
     }
     
     public int checkdiscount(){
