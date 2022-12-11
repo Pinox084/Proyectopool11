@@ -51,12 +51,8 @@ public class Mesa {
                 caja.setMove(potx, poty);
             }
             
-            /*potx = a - player.getX();
-            poty = b - player.getY();
-            System.out.println(potx+ " " + poty);
-            caja.setMove(potx, poty);*/
             
-            mod = 0;
+            mod = 1;
             game();
         }
 

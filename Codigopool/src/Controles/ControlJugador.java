@@ -90,12 +90,14 @@ public class ControlJugador extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.VK_A == e.getKeyCode()) {
+        if (e.VK_S == e.getKeyCode()) {
             mesita.Modificador(-1);
+            Pantalla.p.score.changePotencia(-1);
             System.out.println("presionaste A ");
         }
         if (e.VK_W == e.getKeyCode()) {
             mesita.Modificador(1);
+            Pantalla.p.score.changePotencia(1);
             System.out.println("presionaste D ");
             
         }
