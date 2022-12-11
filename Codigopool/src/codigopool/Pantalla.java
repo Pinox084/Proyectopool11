@@ -18,7 +18,7 @@ public class Pantalla extends JFrame {
     public Mesa mesita;
     private ControlJugador mouse;
     public Puntuacion score;
-    public Pantalla() throws InterruptedException{
+    public Pantalla(){
        super();
        p = this;
        mesita = new Mesa(200,200,600,300);
