@@ -40,7 +40,12 @@ public class Tester1 {
     }
     
     @Test
-    public void TestGeneracion(){
+    public void TestGolpe(){
+        mesita.Modificador(3);
+        mesita.golpear(200, 300);
+        Bola x = mesita.caja.getBall();
+        assertNotNull(x.getMoveX());
+        assertNotNull(x.getMoveY());
         
     }
     
